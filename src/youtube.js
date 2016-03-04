@@ -6,7 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('angular2/core');
 var BASE_URL = 'https://www.googleapis.com/youtube/v3/search';
-var API_TOKEN = 'AIzaSyAJk1xUI72YYfBMgEc84gjHUX-k2AN6-B0';
+var API_TOKEN = 'AIzaSyBbeuQDIFpMxnDNxPWhXOEVMpaBzgyMBjY';
 var YouTubeAPI = (function () {
     function YouTubeAPI(http) {
         this.http = http;
