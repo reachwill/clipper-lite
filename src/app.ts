@@ -10,16 +10,17 @@ import 'rxjs/Rx';
 
 @Component({
   selector: 'my-app',
-  providers: [YouTubeAPI],
   directives: [BigRedButton,Search,YTPlayer],
   template: `
     <h1>ClipperLite</h1>
-    <big-red-button></big-red-button>
+    <big-red-button (clicked)="bigRedClicked($event)"></big-red-button>
     <yt-player></yt-player>
     <search></search>
   `
 })
 export class App {
-  
-  
+    bigRedClicked(event){
+        console.log('clecked at app')
+        $('.video-container').addClass('red');
+    }
 }

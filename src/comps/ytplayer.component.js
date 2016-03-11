@@ -25,7 +25,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 YTPlayer = __decorate([
                     core_1.Component({
                         selector: 'yt-player',
-                        template: "\n    <video id=\"my-video\" class=\"video-js\" controls preload=\"auto\" width=\"640\" height=\"264\"\n  poster=\"MY_VIDEO_POSTER.jpg\" data-setup=\"{}\">\n    <source src=\"MY_VIDEO.mp4\" type='video/mp4'>\n    <source src=\"MY_VIDEO.webm\" type='video/webm'>\n    <p class=\"vjs-no-js\">\n      To view this video please enable JavaScript, and consider upgrading to a web browser that\n      <a href=\"http://videojs.com/html5-video-support/\" target=\"_blank\">supports HTML5 video</a>\n    </p>\n  </video>\n  ",
+                        template: "\n  <div class=\"video-container\">\n    <video id=\"my-video\" class=\"video-js\" controls preload=\"auto\" width=\"640\" height=\"264\"\n  poster=\"MY_VIDEO_POSTER.jpg\" data-setup=\"{}\">\n    <source src=\"MY_VIDEO.mp4\" type='video/mp4'>\n    <source src=\"MY_VIDEO.webm\" type='video/webm'>\n    <p class=\"vjs-no-js\">\n      To view this video please enable JavaScript, and consider upgrading to a web browser that\n      <a href=\"http://videojs.com/html5-video-support/\" target=\"_blank\">supports HTML5 video</a>\n    </p>\n  </video>\n  <script src=\"http://vjs.zencdn.net/5.8.0/video.js\"></script>\n  </div>\n  ",
                         styles: ["\n    \n  "],
                     }), 
                     __metadata('design:paramtypes', [])

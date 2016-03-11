@@ -29,11 +29,21 @@ video{
     border:1px solid black; 
     width:95%; 
     height:65px; 
-    background:orange;
+    background:red;
     padding: 5px;
     text-align: center;
     color:white;
     margin: 10px;
     display: inline-block;
+ }
+ 
+ .video-container{
+     width:100%;
+     height: 400px;
+     background: green;
+ }
+ 
+ .red{
+     background: red;
  }
 

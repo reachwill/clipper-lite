@@ -3,6 +3,7 @@ import {Component} from 'angular2/core';
 @Component({
   selector: 'yt-player',
   template:`
+  <div class="video-container">
     <video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
   poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
     <source src="MY_VIDEO.mp4" type='video/mp4'>
@@ -12,6 +13,8 @@ import {Component} from 'angular2/core';
       <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
     </p>
   </video>
+  <script src="http://vjs.zencdn.net/5.8.0/video.js"></script>
+  </div>
   `,
   styles:[`
     

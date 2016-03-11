@@ -20,12 +20,22 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         execute: function() {
             BigRedButton = (function () {
                 function BigRedButton() {
+                    this.clicked = new core_1.EventEmitter();
                     console.log('big red created');
                 }
+                BigRedButton.prototype.bigRedClicked = function (event) {
+                    event.preventDefault();
+                    console.log(event);
+                    this.clicked.next();
+                };
+                __decorate([
+                    core_1.Output(), 
+                    __metadata('design:type', Object)
+                ], BigRedButton.prototype, "clicked", void 0);
                 BigRedButton = __decorate([
                     core_1.Component({
                         selector: 'big-red-button',
-                        template: "\n    <a href=\"#\" id=\"bigRedBtn\">Record</a>\n  ",
+                        template: "\n    <a href=\"#\" id=\"bigRedBtn\" (click)=\"bigRedClicked($event)\">Record</a>\n  ",
                         styles: ["\n    \n  "],
                     }), 
                     __metadata('design:paramtypes', [])

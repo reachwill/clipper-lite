@@ -1,4 +1,4 @@
-System.register(['angular2/core', './youtube', './comps/bigred.component', './comps/search.component', './comps/ytplayer.component', 'rxjs/Rx'], function(exports_1, context_1) {
+System.register(['angular2/core', './comps/bigred.component', './comps/search.component', './comps/ytplayer.component', 'rxjs/Rx'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,12 @@ System.register(['angular2/core', './youtube', './comps/bigred.component', './co
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, youtube_1, bigred_component_1, search_component_1, ytplayer_component_1;
+    var core_1, bigred_component_1, search_component_1, ytplayer_component_1;
     var App;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (youtube_1_1) {
-                youtube_1 = youtube_1_1;
             },
             function (bigred_component_1_1) {
                 bigred_component_1 = bigred_component_1_1;
@@ -34,12 +31,15 @@ System.register(['angular2/core', './youtube', './comps/bigred.component', './co
             App = (function () {
                 function App() {
                 }
+                App.prototype.bigRedClicked = function (event) {
+                    console.log('clecked at app');
+                    $('.video-container').addClass('red');
+                };
                 App = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        providers: [youtube_1.YouTubeAPI],
                         directives: [bigred_component_1.BigRedButton, search_component_1.Search, ytplayer_component_1.YTPlayer],
-                        template: "\n    <h1>ClipperLite</h1>\n    <big-red-button></big-red-button>\n    <yt-player></yt-player>\n    <search></search>\n  "
+                        template: "\n    <h1>ClipperLite</h1>\n    <big-red-button (clicked)=\"bigRedClicked($event)\"></big-red-button>\n    <yt-player></yt-player>\n    <search></search>\n  "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], App);
