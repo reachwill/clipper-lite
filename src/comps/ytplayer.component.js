@@ -11,29 +11,29 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var BigRedButton;
+    var YTPlayer;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            BigRedButton = (function () {
-                function BigRedButton() {
-                    console.log('big red created');
+            YTPlayer = (function () {
+                function YTPlayer() {
+                    console.log('ytplayer created');
                 }
-                BigRedButton = __decorate([
+                YTPlayer = __decorate([
                     core_1.Component({
-                        selector: 'big-red-button',
-                        template: "\n    <a href=\"#\" id=\"bigRedBtn\">Record</a>\n  ",
+                        selector: 'yt-player',
+                        template: "\n    <video id=\"my-video\" class=\"video-js\" controls preload=\"auto\" width=\"640\" height=\"264\"\n  poster=\"MY_VIDEO_POSTER.jpg\" data-setup=\"{}\">\n    <source src=\"MY_VIDEO.mp4\" type='video/mp4'>\n    <source src=\"MY_VIDEO.webm\" type='video/webm'>\n    <p class=\"vjs-no-js\">\n      To view this video please enable JavaScript, and consider upgrading to a web browser that\n      <a href=\"http://videojs.com/html5-video-support/\" target=\"_blank\">supports HTML5 video</a>\n    </p>\n  </video>\n  ",
                         styles: ["\n    \n  "],
                     }), 
                     __metadata('design:paramtypes', [])
-                ], BigRedButton);
-                return BigRedButton;
+                ], YTPlayer);
+                return YTPlayer;
             }());
-            exports_1("BigRedButton", BigRedButton);
+            exports_1("YTPlayer", YTPlayer);
         }
     }
 });
-//# sourceMappingURL=bigred.component.js.map
+//# sourceMappingURL=ytplayer.component.js.map

@@ -2,8 +2,10 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Clipper Lite</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="http://vjs.zencdn.net/5.8.0/video-js.css" rel="stylesheet">
 
     <script src="https://code.angularjs.org/2.0.0-beta.0/angular2-polyfills.js"></script>
     <script src="https://code.angularjs.org/tools/system.js"></script>
@@ -13,7 +15,10 @@
     <script src="https://code.angularjs.org/2.0.0-beta.0/angular2.min.js"></script>
     <script src="https://code.angularjs.org/2.0.0-beta.0/http.min.js"></script>
     
- 
+    <!-- IE8 videojs support -->
+    <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+    
+    
     
     
     
@@ -25,9 +30,15 @@
 </head>
 
 <body>
-    <my-app>
-        loading...
-    </my-app>
+    <section>
+        <my-app>
+            loading...
+        </my-app>
+    </section>
+    
+    <script src="http://vjs.zencdn.net/5.8.0/video.js"></script>
+    
+    
 </body>
 
 </html>
