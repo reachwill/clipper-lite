@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component, Output, EventEmitter} from 'angular2/core';
 import {Control} from 'angular2/common';
 import {YouTubeAPI} from '../youtube';
 import 'rxjs/Rx';
@@ -8,11 +8,16 @@ import 'rxjs/Rx';
   providers: [YouTubeAPI],
   template:`
     <input [ngFormControl]="search">
-    <div *ngFor="#video of results | async">
-      <h3>{{video.snippet.title}}</h3>
-      <p>{{video.snippet.title}}</p>
-      <img [src]="video.snippet.thumbnails.default.url"/>
-    </div>
+    <ul>
+            <li  *ngFor="#video of results | async">
+                <a  href="#" data-id="{{video.id.videoId}}" (click)="itemClicked($event)">
+                    <h3>{{video.snippet.title}}</h3>
+                    <p>{{video.snippet.description}}</p>
+                    <img [src]="video.snippet.thumbnails.default.url"/>
+                </a>
+            </li>
+       
+    </ul>
   `,
   styles:[`
     
@@ -23,7 +28,6 @@ export class Search  {
   search = new Control();
   results: Observable<any>;
   constructor(public youtube:YouTubeAPI) {
-   console.log('huh');
    //observable of results
    this.results = 
    //input value change observable
@@ -31,5 +35,15 @@ export class Search  {
       .debounceTime(200) //debounce for 200ms
       .switchMap(query => youtube.search(query));
       //switchMap flattens the async and cancels the pending request if a new value is requested
+      
   }
+  
+    @Output()
+            resultClicked = new EventEmitter();
+            
+    itemClicked(event) {
+        event.preventDefault();
+        console.log(event.currentTarget);
+        this.resultClicked.next(event.currentTarget);
+    }
 }

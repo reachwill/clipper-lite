@@ -29,7 +29,7 @@ System.register(['angular2/core', 'angular2/common', '../youtube', 'rxjs/Rx'], f
                 function Search(youtube) {
                     this.youtube = youtube;
                     this.search = new common_1.Control();
-                    console.log('huh');
+                    this.resultClicked = new core_1.EventEmitter();
                     //observable of results
                     this.results =
                         //input value change observable
@@ -38,11 +38,20 @@ System.register(['angular2/core', 'angular2/common', '../youtube', 'rxjs/Rx'], f
                             .switchMap(function (query) { return youtube.search(query); });
                     //switchMap flattens the async and cancels the pending request if a new value is requested
                 }
+                Search.prototype.itemClicked = function (event) {
+                    event.preventDefault();
+                    console.log(event.currentTarget);
+                    this.resultClicked.next(event.currentTarget);
+                };
+                __decorate([
+                    core_1.Output(), 
+                    __metadata('design:type', Object)
+                ], Search.prototype, "resultClicked", void 0);
                 Search = __decorate([
                     core_1.Component({
                         selector: 'search',
                         providers: [youtube_1.YouTubeAPI],
-                        template: "\n    <input [ngFormControl]=\"search\">\n    <div *ngFor=\"#video of results | async\">\n      <h3>{{video.snippet.title}}</h3>\n      <p>{{video.snippet.title}}</p>\n      <img [src]=\"video.snippet.thumbnails.default.url\"/>\n    </div>\n  ",
+                        template: "\n    <input [ngFormControl]=\"search\">\n    <ul>\n            <li  *ngFor=\"#video of results | async\">\n                <a  href=\"#\" data-id=\"{{video.id.videoId}}\" (click)=\"itemClicked($event)\">\n                    <h3>{{video.snippet.title}}</h3>\n                    <p>{{video.snippet.description}}</p>\n                    <img [src]=\"video.snippet.thumbnails.default.url\"/>\n                </a>\n            </li>\n       \n    </ul>\n  ",
                         styles: ["\n    \n  "],
                     }), 
                     __metadata('design:paramtypes', [youtube_1.YouTubeAPI])

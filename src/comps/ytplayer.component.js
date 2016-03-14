@@ -19,16 +19,29 @@ System.register(['angular2/core'], function(exports_1, context_1) {
             }],
         execute: function() {
             YTPlayer = (function () {
-                function YTPlayer() {
-                    console.log('ytplayer created');
+                function YTPlayer(elementRef) {
+                    this._elementRef = elementRef;
                 }
+                YTPlayer.prototype.ngOnInit = function () {
+                    console.log('Init - Component initialized');
+                    this.videoJSplayer = videojs(document.getElementById('player'), {}, function () {
+                        // This is functionally the same as the previous example.
+                    });
+                };
+                YTPlayer.prototype.ngOnDestroy = function () {
+                    console.log('Deinit - Destroyed Component');
+                    this.videoJSplayer.dispose();
+                };
+                YTPlayer.prototype.loadVideo = function () {
+                    console.log('load video');
+                };
                 YTPlayer = __decorate([
                     core_1.Component({
                         selector: 'yt-player',
-                        template: "\n  <div class=\"video-container\">\n    <video id=\"my-video\" class=\"video-js\" controls preload=\"auto\" width=\"640\" height=\"264\"\n  poster=\"MY_VIDEO_POSTER.jpg\" data-setup=\"{}\">\n    <source src=\"MY_VIDEO.mp4\" type='video/mp4'>\n    <source src=\"MY_VIDEO.webm\" type='video/webm'>\n    <p class=\"vjs-no-js\">\n      To view this video please enable JavaScript, and consider upgrading to a web browser that\n      <a href=\"http://videojs.com/html5-video-support/\" target=\"_blank\">supports HTML5 video</a>\n    </p>\n  </video>\n  <script src=\"http://vjs.zencdn.net/5.8.0/video.js\"></script>\n  </div>\n  ",
+                        template: "\n  <div class=\"player-container\">\n    <video\n        id=\"player\"\n        class=\"video-js vjs-default-skin\"\n        controls \n        width=\"640\" height=\"264\"\n        poster=\"media/clipper-logo-play-hires\" \n        data-setup='{ \"techOrder\": [\"youtube\"], \"sources\": [{ \"type\": \"video/youtube\", \"src\": \"http://www.youtube.com/watch?v=xjS6SftYQaQ\"}] }'\n    >\n    </video>\n  </div>\n  ",
                         styles: ["\n    \n  "],
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [core_1.ElementRef])
                 ], YTPlayer);
                 return YTPlayer;
             }());

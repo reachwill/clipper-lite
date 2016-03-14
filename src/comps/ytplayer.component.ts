@@ -1,19 +1,18 @@
-import {Component} from 'angular2/core';
+import {Component, ElementRef, OnInit, OnDestroy} from 'angular2/core';
 
 @Component({
   selector: 'yt-player',
   template:`
-  <div class="video-container">
-    <video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
-  poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
-    <source src="MY_VIDEO.mp4" type='video/mp4'>
-    <source src="MY_VIDEO.webm" type='video/webm'>
-    <p class="vjs-no-js">
-      To view this video please enable JavaScript, and consider upgrading to a web browser that
-      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-    </p>
-  </video>
-  <script src="http://vjs.zencdn.net/5.8.0/video.js"></script>
+  <div class="player-container">
+    <video
+        id="player"
+        class="video-js vjs-default-skin"
+        controls 
+        width="640" height="264"
+        poster="media/clipper-logo-play-hires" 
+        data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "http://www.youtube.com/watch?v=xjS6SftYQaQ"}] }'
+    >
+    </video>
   </div>
   `,
   styles:[`
@@ -21,8 +20,30 @@ import {Component} from 'angular2/core';
   `],
   
 })
-export class YTPlayer  {
-  constructor() {
-      console.log('ytplayer created');
-   }
+export class YTPlayer implements OnInit, OnDestroy {
+
+    private _elementRef: ElementRef
+    private videoJSplayer : VideoJSPlayer
+
+    constructor(elementRef: ElementRef) {
+        this._elementRef = elementRef
+    }
+
+    ngOnInit() {
+        console.log('Init - Component initialized')
+
+        this.videoJSplayer = videojs(document.getElementById('player'), {}, function() {
+            // This is functionally the same as the previous example.
+        });
+    }
+
+    ngOnDestroy() {
+        console.log('Deinit - Destroyed Component')
+        this.videoJSplayer.dispose()
+    }
+    
+    loadVideo() {
+        console.log('load video')
+    }
+    
 }

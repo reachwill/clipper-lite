@@ -32,14 +32,19 @@ System.register(['angular2/core', './comps/bigred.component', './comps/search.co
                 function App() {
                 }
                 App.prototype.bigRedClicked = function (event) {
-                    console.log('clecked at app');
-                    $('.video-container').addClass('red');
+                    //console.log('clicked at app')
+                    $('.player-container').addClass('red');
+                };
+                App.prototype.searchResultClicked = function (event) {
+                    //console.log(event.id);
+                    videojs('#player').src({ "src": "https://www.youtube.com/watch?v=" + event.id });
+                    videojs('#player').play();
                 };
                 App = __decorate([
                     core_1.Component({
                         selector: 'my-app',
                         directives: [bigred_component_1.BigRedButton, search_component_1.Search, ytplayer_component_1.YTPlayer],
-                        template: "\n    <h1>ClipperLite</h1>\n    <big-red-button (clicked)=\"bigRedClicked($event)\"></big-red-button>\n    <yt-player></yt-player>\n    <search></search>\n  "
+                        template: "\n    <h1>ClipperLite</h1>\n    <big-red-button (clicked)=\"bigRedClicked($event)\"></big-red-button>\n    <yt-player #p></yt-player>\n    <search (resultClicked)=\"searchResultClicked($event)\"></search>\n  "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], App);
