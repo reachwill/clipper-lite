@@ -12,21 +12,31 @@ import 'rxjs/Rx';
   selector: 'my-app',
   directives: [BigRedButton,Search,YTPlayer],
   template: `
-    <h1>ClipperLite</h1>
+    <div id="top-bar">
+        <a href="#" class="search" (click)="toggleSearch($event)"><span class="icon-search right">search</span></a>
+    </div>
+    <div id="toolbar">
+        
+    </div>
     <big-red-button (clicked)="bigRedClicked($event)"></big-red-button>
-    <yt-player #p></yt-player>
-    <search (resultClicked)="searchResultClicked($event)"></search>
+    <yt-player></yt-player>
+    <search id="searchBox" (resultClicked)="searchResultClicked($event)"></search>
   `
 })
 export class App {
-    bigRedClicked(event){
-        //console.log('clicked at app')
-        $('.player-container').addClass('red');
+    
+    toggleSearch(event){
+        $('#searchBox').toggle();
+    }
+    
+    
+    bigRedClicked(event){  
+        $('.player-container').toggleClass('red');
     }
     
      searchResultClicked(event){
-        //console.log(event.id);
         videojs('#player').src({"src":"https://www.youtube.com/watch?v="+event.id});
         videojs('#player').play();
+        $('#searchBox').fadeToggle();
     }
 }
