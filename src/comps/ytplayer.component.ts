@@ -10,7 +10,7 @@ import {Component, ElementRef, OnInit, OnDestroy} from 'angular2/core';
         controls 
         width="640" height="264"
         poster="media/clipper-logo-play-hires" 
-        data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "http://www.youtube.com/watch?v=xjS6SftYQaQ"}] }'
+        data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=ANpuGQOYjAM"}] }'
     >
     </video>
   </div>
