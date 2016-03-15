@@ -10,7 +10,7 @@ export class YouTubeAPI {
   constructor(private http:Http){}
   
   search(query){
-      var results = this.http.get(`${BASE_URL}?q=${query}%20-channel&maxResults=50&part=snippet,id&key=${API_TOKEN}`)
+      var results = this.http.get(`${BASE_URL}?q=${query}%20-channel&part=snippet,id&key=${API_TOKEN}`)
       .map((res:Response) => res.json())
       .map(json => json.items);
       

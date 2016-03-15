@@ -7,7 +7,7 @@ import 'rxjs/Rx';
   selector: 'search',
   providers: [YouTubeAPI],
   template:`
-    <input [ngFormControl]="search" placeholder="search">
+    <input [ngFormControl]="search">
     <ul>
             <li  *ngFor="#video of results | async">
                 <a  href="#" data-id="{{video.id.videoId}}" (click)="itemClicked($event)">
@@ -25,7 +25,6 @@ import 'rxjs/Rx';
   
 })
 export class Search  {
-   
   search = new Control();
   results: Observable<any>;
   constructor(public youtube:YouTubeAPI) {
