@@ -28,7 +28,7 @@ System.register(['angular2/http', 'angular2/core'], function(exports_1, context_
                     this.http = http;
                 }
                 YouTubeAPI.prototype.search = function (query) {
-                    var results = this.http.get(BASE_URL + "?q=" + query + "%20-channel&part=snippet,id&key=" + API_TOKEN)
+                    var results = this.http.get(BASE_URL + "?q=" + query + "%20-channel&maxResults=50&part=snippet,id&key=" + API_TOKEN)
                         .map(function (res) { return res.json(); })
                         .map(function (json) { return json.items; });
                     return results;

@@ -31,20 +31,22 @@ System.register(['angular2/core', './comps/bigred.component', './comps/search.co
             App = (function () {
                 function App() {
                 }
+                App.prototype.toggleSearch = function (event) {
+                    $('#searchBox').toggle();
+                };
                 App.prototype.bigRedClicked = function (event) {
-                    //console.log('clicked at app')
-                    $('.player-container').addClass('red');
+                    $('.player-container').toggleClass('red');
                 };
                 App.prototype.searchResultClicked = function (event) {
-                    //console.log(event.id);
                     videojs('#player').src({ "src": "https://www.youtube.com/watch?v=" + event.id });
                     videojs('#player').play();
+                    $('#searchBox').fadeToggle();
                 };
                 App = __decorate([
                     core_1.Component({
                         selector: 'my-app',
                         directives: [bigred_component_1.BigRedButton, search_component_1.Search, ytplayer_component_1.YTPlayer],
-                        template: "\n    <h1>ClipperLite</h1>\n    <big-red-button (clicked)=\"bigRedClicked($event)\"></big-red-button>\n    <yt-player #p></yt-player>\n    <search (resultClicked)=\"searchResultClicked($event)\"></search>\n  "
+                        template: "\n    <div id=\"top-bar\">\n        <a href=\"#\" class=\"search\" (click)=\"toggleSearch($event)\"><span class=\"icon-search right\">search</span></a>\n    </div>\n    <div id=\"toolbar\">\n        \n    </div>\n    <big-red-button (clicked)=\"bigRedClicked($event)\"></big-red-button>\n    <yt-player></yt-player>\n    <search id=\"searchBox\" (resultClicked)=\"searchResultClicked($event)\"></search>\n  "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], App);

@@ -38,7 +38,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 YTPlayer = __decorate([
                     core_1.Component({
                         selector: 'yt-player',
-                        template: "\n  <div class=\"player-container\">\n    <video\n        id=\"player\"\n        class=\"video-js vjs-default-skin\"\n        controls \n        width=\"640\" height=\"264\"\n        poster=\"media/clipper-logo-play-hires\" \n        data-setup='{ \"techOrder\": [\"youtube\"], \"sources\": [{ \"type\": \"video/youtube\", \"src\": \"http://www.youtube.com/watch?v=xjS6SftYQaQ\"}] }'\n    >\n    </video>\n  </div>\n  ",
+                        template: "\n  <div class=\"player-container\">\n    <video\n        id=\"player\"\n        class=\"video-js vjs-default-skin\"\n        controls \n        width=\"640\" height=\"264\"\n        poster=\"media/clipper-logo-play-hires\" \n        data-setup='{ \"techOrder\": [\"youtube\"], \"sources\": [{ \"type\": \"video/youtube\", \"src\": \"https://www.youtube.com/watch?v=ANpuGQOYjAM\"}] }'\n    >\n    </video>\n  </div>\n  ",
                         styles: ["\n    \n  "],
                     }), 
                     __metadata('design:paramtypes', [core_1.ElementRef])
