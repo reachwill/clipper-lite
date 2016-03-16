@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Clipper Lite</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="http://vjs.zencdn.net/5.8.0/video-js.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/vendors/rrssb.css" />
+   
+
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+    <script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>   
+
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+
+    <!-- 2. Configure SystemJS -->
+    <script>
+      System.config({
+        packages: {        
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+      });
+      System.import('src/main')
+            .then(null, console.error.bind(console));
+    </script>
+    
+   
+</head>
+
+<body>
+    <section>
+        
+        <my-app>
+            loading...
+        </my-app>
+         
+    </section>
+    
+    
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    
+    <script>$(document).ready(function(){
+        console.log('doc ready');
+    });</script>
+   
+</body>
+
+</html>
