@@ -10,13 +10,17 @@ import {Component, ElementRef, OnInit, OnDestroy} from 'angular2/core';
         controls 
         width="640" height="264"
         poster="media/clipper-logo-play-hires" 
-        data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=ANpuGQOYjAM"}] }'
+        data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=PaOYzsZdt5c"}] }'
     >
     </video>
   </div>
   `,
   styles:[`
-    
+    .player-dimensions{
+        width:100%;/*override videojs style which fixed width at 640px*/
+        max-width:640px;
+        margin:0 auto;
+    }
   `],
   
 })

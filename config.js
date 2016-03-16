@@ -1,4 +1,5 @@
 System.config({
+  baseURL: '/app',
   //use typescript for compilation
   transpiler: 'typescript',
   //typescript compiler options
