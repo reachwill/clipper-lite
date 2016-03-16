@@ -1,8 +1,5 @@
-//main entry point
-import {bootstrap} from 'angular2/platform/browser';
-import {HTTP_PROVIDERS} from 'angular2/http'
-import {App} from './app';
+import {bootstrap}    from 'angular2/platform/browser';
+import {AppComponent} from './comps/app.component';
 
-bootstrap(App, [HTTP_PROVIDERS])
-  .catch(err => console.error(err));
+bootstrap(AppComponent);
 

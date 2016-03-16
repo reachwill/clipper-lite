@@ -2,18 +2,11 @@ import {Component} from 'angular2/core';
 
 @Component({
   selector: 'consumer',
-  template:`
-   hello consumer
-  `,
-  styles:[`
-    
-  `],
-  
+  template: '<h1>Consumer</h1>'
 })
-export class Consumer  {
+
+export class Consumer {
     constructor() {
         console.log('consumer created');
     }
-    
-     
 }
