@@ -58,7 +58,7 @@ System.register(['angular2/core', '../comps/bigred.component', '../comps/search.
                     core_1.Component({
                         selector: 'editor',
                         directives: [bigred_component_1.BigRedButton, search_component_1.Search, ytplayer_component_1.YTPlayer],
-                        template: "\n    <div id=\"top-bar\">\n         \n        <a href=\"#\" class=\"search\" (click)=\"toggleSearch($event)\"><span class=\"icon-search right\"></span></a>\n        \n    </div>\n   \n    <big-red-button (clicked)=\"bigRedClicked($event)\"></big-red-button>\n    <yt-player></yt-player>\n    <search id=\"searchBox\" (resultClicked)=\"searchResultClicked($event)\"></search>\n   \n  "
+                        template: "\n    <div id=\"top-bar\"></div>\n    <div id=\"edit-controls\">\n        <a href=\"#\" class=\"search\" (click)=\"toggleSearch($event)\"><span class=\"icon-search\"></span></a>\n        <big-red-button (clicked)=\"bigRedClicked($event)\"></big-red-button>\n    </div>\n    \n    <yt-player></yt-player>\n    <search id=\"searchBox\" (resultClicked)=\"searchResultClicked($event)\"></search>\n   \n  "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], Editor);

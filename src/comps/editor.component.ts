@@ -13,13 +13,12 @@ import 'rxjs/Rx';
   selector: 'editor',
   directives: [BigRedButton,Search,YTPlayer],
   template: `
-    <div id="top-bar">
-         
-        <a href="#" class="search" (click)="toggleSearch($event)"><span class="icon-search right"></span></a>
-        
+    <div id="top-bar"></div>
+    <div id="edit-controls">
+        <a href="#" class="search" (click)="toggleSearch($event)"><span class="icon-search"></span></a>
+        <big-red-button (clicked)="bigRedClicked($event)"></big-red-button>
     </div>
-   
-    <big-red-button (clicked)="bigRedClicked($event)"></big-red-button>
+    
     <yt-player></yt-player>
     <search id="searchBox" (resultClicked)="searchResultClicked($event)"></search>
    
@@ -29,6 +28,7 @@ export class Editor {
     
     constructor() {
         console.log('editor created');
+        
     }
     
     _vidURL:string;

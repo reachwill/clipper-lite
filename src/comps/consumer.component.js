@@ -24,7 +24,9 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 }
                 Consumer = __decorate([
                     core_1.Component({
-                        selector: 'consumer',
+                        selector: 'consumer'
+                    }),
+                    core_1.View({
                         template: '<h1>Consumer</h1>'
                     }), 
                     __metadata('design:paramtypes', [])
